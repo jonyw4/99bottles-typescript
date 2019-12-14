@@ -1,30 +1,28 @@
 export class Beer {
     public static verse(verseNumber: number) {
-        function getFirstLine() {
+        function getLines() {
             switch (verseNumber) {
                 case 0:
-                    return 'No more bottles of beer on the wall, no more bottles of beer.';
+                    return [
+                        'No more bottles of beer on the wall, no more bottles of beer.',
+                        'Go to the store and buy some more, 99 bottles of beer on the wall.',
+                    ] as const;
                 case 1:
-                    return '1 bottle of beer on the wall, 1 bottle of beer.';
-                default:
-                    return `${verseNumber} bottles of beer on the wall, ${verseNumber} bottles of beer.`;
-            }
-        }
-
-        function getSecondLine() {
-            switch (verseNumber) {
-                case 0:
-                    return 'Go to the store and buy some more, 99 bottles of beer on the wall.';
-                case 1:
-                    return `Take it down and pass it around, no more bottles of beer on the wall.`;
+                    return [
+                        '1 bottle of beer on the wall, 1 bottle of beer.',
+                        `Take it down and pass it around, no more bottles of beer on the wall.`,
+                    ] as const;
                 case 2:
-                    return `Take one down and pass it around, 1 bottle of beer on the wall.`;
+                    return [`2 bottles of beer on the wall, 2 bottles of beer.`, `Take one down and pass it around, 1 bottle of beer on the wall.`] as const;
                 default:
-                    return `Take one down and pass it around, ${verseNumber - 1} bottles of beer on the wall.`;
+                    return [
+                        `${verseNumber} bottles of beer on the wall, ${verseNumber} bottles of beer.`,
+                        `Take one down and pass it around, ${verseNumber - 1} bottles of beer on the wall.`,
+                    ] as const;
             }
         }
-
-        return `${getFirstLine()}\n${getSecondLine()}\n`;
+        const [firstLine, secondLine] = getLines();
+        return `${firstLine}\n${secondLine}\n`;
     }
 
     public static sing(fromVerse: number = 99, toVerse: number = 0) {
