@@ -1,4 +1,4 @@
-import Beer from './beer-song'
+import { Beer } from './beer-song'
 
 describe('Beer', () => {
 
