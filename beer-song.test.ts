@@ -1,7 +1,6 @@
 import { Beer } from './beer-song'
 
 describe('Beer', () => {
-
   it('prints an arbitrary verse', () => {
     const expected = `8 bottles of beer on the wall, 8 bottles of beer.
 Take one down and pass it around, 7 bottles of beer on the wall.
@@ -10,7 +9,7 @@ Take one down and pass it around, 7 bottles of beer on the wall.
     expect(Beer.verse(8)).toEqual(expected)
   })
 
-  xit('handles 1 bottle', () => {
+  it('handles 1 bottle', () => {
     const expected = `1 bottle of beer on the wall, 1 bottle of beer.
 Take it down and pass it around, no more bottles of beer on the wall.
 `
