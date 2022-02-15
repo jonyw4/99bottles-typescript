@@ -3,6 +3,15 @@ export interface BeerVerse {
     passArround(): string;
 }
 
+class Bottle {
+    public static getStringByQty(qty: number): string{
+         if (qty === 1) {
+             return 'bottle';
+         }
+        return 'bottles';
+    }
+}
+
 export class ManyBearsOnTheWallVerse implements BeerVerse {
     constructor(private beearsOnTheWall: number) {}
     getOnTheWall(): string {
@@ -10,15 +19,8 @@ export class ManyBearsOnTheWallVerse implements BeerVerse {
     }
     passArround(): string {
         const newBeearsOnTheWall = this.beearsOnTheWall - 1;
-        const bottleString = this.getBottleStringByQty(newBeearsOnTheWall);
+        const bottleString = Bottle.getStringByQty(newBeearsOnTheWall);
         return `Take one down and pass it around, ${newBeearsOnTheWall} ${bottleString} of beer on the wall.`;
-    }
-
-    private getBottleStringByQty(qty: number): string {
-        if (qty === 1) {
-            return 'bottle';
-        }
-        return 'bottles';
     }
 }
 
