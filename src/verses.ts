@@ -1,26 +1,19 @@
+import { Bottle } from './bottle'
+
 export interface BeerVerse {
     getOnTheWall(): string;
     passArround(): string;
 }
 
-class Bottle {
-    public static getStringByQty(qty: number): string{
-         if (qty === 1) {
-             return 'bottle';
-         }
-        return 'bottles';
-    }
-}
-
 export class ManyBearsOnTheWallVerse implements BeerVerse {
-    constructor(private beearsOnTheWall: number) {}
+    constructor(private bottlesOnWallQty: number) {}
     getOnTheWall(): string {
-        return `${this.beearsOnTheWall} bottles of beer on the wall, ${this.beearsOnTheWall} bottles of beer.`;
+        return `${this.bottlesOnWallQty} bottles of beer on the wall, ${this.bottlesOnWallQty} bottles of beer.`;
     }
     passArround(): string {
-        const newBeearsOnTheWall = this.beearsOnTheWall - 1;
-        const bottleString = Bottle.getStringByQty(newBeearsOnTheWall);
-        return `Take one down and pass it around, ${newBeearsOnTheWall} ${bottleString} of beer on the wall.`;
+        const updatedBottlesOnWallQty = this.bottlesOnWallQty - 1;
+        const bottleString = Bottle.getStringByQty(updatedBottlesOnWallQty);
+        return `Take one down and pass it around, ${updatedBottlesOnWallQty} ${bottleString} of beer on the wall.`;
     }
 }
 

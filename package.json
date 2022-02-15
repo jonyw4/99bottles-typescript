@@ -10,8 +10,8 @@
     },
     "devDependencies": {},
     "scripts": {
-        "test": "tsc --noEmit -p . && jest --no-cache",
-        "lint": "tsc --noEmit -p . && tslint \"*.ts?(x)\"",
+        "test": "jest /tests --no-cache",
+        "lint": "tslint \"*.ts?(x)\"",
         "lintci": "tslint \"*.ts?(x)\" --force"
     },
     "dependencies": {
